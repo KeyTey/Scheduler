@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  div.jumbotron.my-3
+  div.jumbotron.mt-4.mb-3
     h1.display-4 予定調整くん
-    p.lead 予定調整くんは、GitHubで認証でき、予定を作って出欠が取れるサービスです
+    p.lead GitHub認証を利用して自由に予定を作って出欠が取れるサービスです
   if user
     div
       a(href="/schedules/new").btn.btn-info 予定を作る
     if schedules.length > 0
-      h3.my-3 あなたの作った予定一覧
+      h3.mt-5.mb-3 あなたの作った予定一覧
       table.table
         tr
           th 予定名

@@ -17,8 +17,8 @@ $('.availability-toggle-button').each((i, e) => {
       { availability: nextAvailability },
       (data) => {
         button.data('availability', data.availability);
-        const availabilityLabels = ['欠', '？', '出'];
-        button.text(availabilityLabels[data.availability]);
+        const availabilityLabels = ['fas fa-times', 'fas fa-question', 'far fa-circle'];
+        button.html(`<i class="${availabilityLabels[data.availability]}"></i>`);
         const buttonStyles = ['btn-danger', 'btn-secondary', 'btn-success'];
         button.removeClass('btn-danger btn-secondary btn-success');
         button.addClass(buttonStyles[data.availability]);

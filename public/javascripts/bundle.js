@@ -112,8 +112,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.availability-toggle-button').eac
       availability: nextAvailability
     }, function (data) {
       button.data('availability', data.availability);
-      var availabilityLabels = ['欠', '？', '出'];
-      button.text(availabilityLabels[data.availability]);
+      var availabilityLabels = ['fas fa-times', 'fas fa-question', 'far fa-circle'];
+      button.html("<i class=\"".concat(availabilityLabels[data.availability], "\"></i>"));
       var buttonStyles = ['btn-danger', 'btn-secondary', 'btn-success'];
       button.removeClass('btn-danger btn-secondary btn-success');
       button.addClass(buttonStyles[data.availability]);

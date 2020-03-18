@@ -1,22 +1,22 @@
 extends layout
 
 block content
-  div.card.my-3
+  div.card.mt-5
     div.card-header
       h4 #{schedule.scheduleName}
     div.card-body
-      p(style="white-space: pre;") #{schedule.memo}
+      span(style="white-space: pre;") #{schedule.memo}
     div.card-footer
-      p 作成者: #{schedule.user.username}
-  div.form-group
+      span 作成者: #{schedule.user.username}
+  div.form-group.mt-3
     label(for="shareURL") 共有用 URL:
     - var herokuURL = process.env.HEROKU_URL ? process.env.HEROKU_URL : 'http://localhost:8000'
     input(type="text" value=`${herokuURL}/schedules/${schedule.scheduleId}/` readonly)#shareURL.form-control
   if parseInt(user.id) === schedule.user.userId
     div
       a(href=`/schedules/${schedule.scheduleId}/edit`).btn.btn-info この予定を編集する
-  h3.my-3 出欠表
-  table.table.table-bordered
+  h3.mt-5.mb-3 出欠表
+  table.table.table-bordered.mb-5
     tr
       th 予定
       each user in users
@@ -26,7 +26,7 @@ block content
         th #{candidate.candidateName}
         each user in users
           - var availability = availabilityMapMap.get(user.userId).get(candidate.candidateId)
-          - var availabilityLabels = ['欠', '？', '出'];
+          - var availabilityLabels = ['fas fa-times', 'fas fa-question', 'far fa-circle'];
           - var buttonStyles = ['btn-danger', 'btn-secondary', 'btn-success'];
           td
             if user.isSelf
@@ -36,7 +36,8 @@ block content
                 data-user-id=user.userId
                 data-candidate-id=candidate.candidateId
                 data-availability=availability
-              ) #{availabilityLabels[availability]}
+                style="width: 40px;"
+              ) #[i(class=availabilityLabels[availability])]
             else
               h5 #{availabilityLabels[availability]}
     tr
@@ -50,4 +51,4 @@ block content
               data-user-id=user.userId
             )#self-comment-button.btn.btn-info 編集
           else
-            p #{commentMap.get(user.userId)}
+            span #{commentMap.get(user.userId)}

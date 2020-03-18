@@ -8,6 +8,10 @@ router.get('/', (req, res, next) => {
   if (from) {
     res.cookie('loginFrom', from, { expires: new Date(Date.now() + 600000)});
   }
+  if (req.isAuthenticated()) {
+    res.redirect('/');
+    return;
+  }
   res.render('login')
 });
 
