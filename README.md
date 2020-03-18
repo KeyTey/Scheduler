@@ -7,29 +7,38 @@ https://schedulist.herokuapp.com
 ### Server 1
 
 ```
-$ npm install
-$ PORT=8000 npm start
+$ postgres -D /usr/local/var/postgres
 ```
 
 ### Server 2
 
+After cloning:
+
 ```
-$ postgres -D /usr/local/var/postgres
+$ createdb scheduler
+$ npm install
 ```
 
-### Server 3
+When starting:
 
-Create a bundle using webpack:
+```
+$ PORT=8000 npm start
+```
+
+When using webpack:
+
 ```
 $ ./node_modules/.bin/webpack
 ```
 
-Create a new PostgreSQL database:
+When testing:
+
 ```
-$ createdb scheduler
+$ npm run test
 ```
 
-Delete a PostgreSQL database:
+When closing:
+
 ```
 $ dropdb scheduler
 ```
