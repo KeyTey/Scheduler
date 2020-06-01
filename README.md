@@ -1,7 +1,5 @@
 # Scheduler
 
-https://schedulist.herokuapp.com
-
 ## Development
 
 ### Server 1
