@@ -46,8 +46,8 @@ $ dropdb scheduler
 ```
 $ heroku create
 $ heroku addons:create heroku-postgresql:hobby-dev
-$ heroku config:set GITHUB_CLIENT_ID="<YOUR CLIENT ID>"
-$ heroku config:set GITHUB_CLIENT_SECRET="<YOUR CLIENT SECRET>"
-$ heroku config:set HEROKU_URL="https://schedulist.herokuapp.com"
+$ heroku config:set GITHUB_CLIENT_ID="EXAMPLE"
+$ heroku config:set GITHUB_CLIENT_SECRET="EXAMPLE"
+$ heroku config:set HEROKU_URL="https://example.herokuapp.com"
 $ git push heroku master
 ```
