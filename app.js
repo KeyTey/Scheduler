@@ -29,7 +29,7 @@ User.sync().then(() => {
 var GitHubStrategy = require('passport-github2').Strategy;
 var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
-var GITHUB_CALLBACK_URL = process.env.HEROKU_URL + '/auth/github/callback';
+var GITHUB_CALLBACK_URL = process.env.SERVICE_URL + '/auth/github/callback';
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
