@@ -1,6 +1,6 @@
 # Scheduler
 
-## GitHub OAuth Configuration
+## GitHub OAuth Setup
 
 1. Access to [OAuth Apps](https://github.com/settings/developers).
 2. Click the [New OAuth App] button.
@@ -18,14 +18,14 @@
 
 ### DB Server
 
-When starting:
+#### Start
 
 ```sh
 $ brew services start postgresql
 $ createdb scheduler
 ```
 
-When stopping:
+#### Stop
 
 ```sh
 $ dropdb scheduler
@@ -34,7 +34,7 @@ $ brew services stop postgresql
 
 ### Web Server
 
-After cloning:
+#### Setup
 
 ```sh
 $ npm install
@@ -43,19 +43,19 @@ $ export GITHUB_CLIENT_SECRET="XXXXXXXXXX"
 $ export SERVICE_URL="http://localhost:8000"
 ```
 
-When starting:
+#### Start
 
 ```sh
 $ npm start
 ```
 
-When using webpack:
+#### Build
 
 ```sh
-$ ./node_modules/.bin/webpack
+$ npm run build
 ```
 
-When testing:
+#### Test
 
 ```sh
 $ npm run test
@@ -69,5 +69,6 @@ $ heroku addons:create heroku-postgresql:hobby-dev
 $ heroku config:set GITHUB_CLIENT_ID="XXXXXXXXXX"
 $ heroku config:set GITHUB_CLIENT_SECRET="XXXXXXXXXX"
 $ heroku config:set SERVICE_URL="https://XXXXXXXXXX.herokuapp.com"
+$ heroku config:set PGSSLMODE=require
 $ git push heroku master
 ```
